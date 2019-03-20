@@ -1,10 +1,8 @@
 package com.somavartok.hickerswatch;
 
 import android.Manifest;
-import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -73,13 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
                 Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
                 try {
-                    List<Address> listAddress =geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    if (listAddress != null && listAddress.size() > 0){
-                        latitudeTextView.setText("Latitude: " + Double.toString(listAddress.get(0).getLatitude()));
-                        longitudeTextView.setText("Longitude: " + Double.toString(listAddress.get(0).getLongitude()));
-                        altitudeTextView.setText("Altitude: " + getAccuracyAltitude().get(0) + " m");
-                        accuracyTextView.setText("Accuracy: " + getAccuracyAltitude().get(1) + " m");
-                        addressTextView.setText("Address: " + listAddress.get(0).getAddressLine(0));
+                    List<Address> listAddress = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                    if (listAddress != null && listAddress.size() > 0) {
+                        latitudeTextView.setText(String.format("Latitude: %s", Double.toString(listAddress.get(0).getLatitude())));
+                        longitudeTextView.setText(String.format("Longitude: %s", Double.toString(listAddress.get(0).getLongitude())));
+                        altitudeTextView.setText(String.format("Altitude: %s m", getAccuracyAltitude().get(0)));
+                        accuracyTextView.setText(String.format("Accuracy: %s m", getAccuracyAltitude().get(1)));
+                        addressTextView.setText(String.format("Address: %s", listAddress.get(0).getAddressLine(0)));
                     }
 
                 } catch (IOException e) {
@@ -105,11 +103,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
-        }else{
+        } else {
 
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
