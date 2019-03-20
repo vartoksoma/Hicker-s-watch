@@ -4,15 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/mountain"
+    tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/TitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Hicker's Watch"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051" />
 
+    <android.support.v7.widget.GridLayout
+        android:layout_width="321dp"
+        android:layout_height="632dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView">
+
+        <TextView
+            android:id="@+id/LatitudeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_margin="20dp"
+            android:layout_marginTop="80dp"
+            android:textColor="@android:color/white"
+            android:text="Latitude"
+            app:layout_row="0"
+            app:layout_column="0"
+            tools:layout_editor_absoluteX="47dp"
+            tools:layout_editor_absoluteY="491dp" />
+
+        <TextView
+            android:id="@+id/LongitudeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longitude"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            app:layout_row="1"
+            app:layout_column="0"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="464dp" />
+
+        <TextView
+            android:id="@+id/AccuracyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:text="Accuracy"
+            app:layout_row="2"
+            app:layout_column="0"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="499dp" />
+
+        <TextView
+            android:id="@+id/AltitudeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:text="Altitude"
+            app:layout_row="3"
+            app:layout_column="0"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <TextView
+            android:id="@+id/AddressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            android:text="Address"
+            app:layout_row="4"
+            app:layout_column="0"
+            tools:layout_editor_absoluteX="16dp" />
+
+    </android.support.v7.widget.GridLayout>
 </android.support.constraint.ConstraintLayout>
